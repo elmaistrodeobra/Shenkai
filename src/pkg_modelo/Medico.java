@@ -12,8 +12,7 @@ package pkg_modelo;
 public class Medico {
     
 }
-=======
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt 
+ /* Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt 
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java 
  */
 package pkg_modelo;
@@ -51,4 +50,3 @@ public class Medico extends Persona {
         return "Dr(a). " + getNombre() + " " + getApellido() + " | Esp: " + especialidad + " | Cédula: " + cedula;
     }
 }
->>>>>>> origin/master
