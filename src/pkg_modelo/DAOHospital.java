@@ -6,6 +6,8 @@
 import java.util.ArrayList;
 import java.util.List;
 
+
+public class DAOHospital {
 public boolean registrarMedico(Medico medico) {
     String sql = "INSERT INTO Medico (nombre, apellido, telefono, cedula, especialidad, horario) VALUES (?, ?, ?, ?, ?, ?)";
     try (Connection con = obtenerConexion(); // Cambia "obtenerConexion()" por el método de conexión que tengan en su clase
@@ -63,4 +65,5 @@ public boolean eliminarMedico(int idMedico) {
         System.err.println("Error al eliminar médico: " + e.getMessage());
         return false;
     }
+}
 }
