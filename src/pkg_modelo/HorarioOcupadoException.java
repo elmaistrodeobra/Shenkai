@@ -8,6 +8,6 @@ package pkg_modelo;
  *
  * @author uli08
  */
-public class DAOHospital {
-      
+public class HorarioOcupadoException {
+    
 }
