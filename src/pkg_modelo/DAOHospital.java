@@ -110,15 +110,15 @@ public class DAOHospital {
         return estaOcupado;
     }
     
-    public void insertarCita(CitaMedica cita) throws SQLException {
+    public void insertarCita(Cita cita) throws SQLException {
         String sql = "INSERT INTO CitaMedica (id_paciente, id_medico, fecha, hora, diagnostico) "
                 + "VALUES (?, ?, ?, ?, ?)";
         
         try (Connection con = DriverManager.getConnection(URL, USER, PASS);
              PreparedStatement ps = con.prepareStatement(sql)) {
             
-            ps.setInt(1, cita.getPaciente().getId_paciente());
-            ps.setInt(2, cita.getMedico().getId_medico());
+            ps.setInt(1, cita.getPaciente().getId()); 
+            ps.setInt(2, cita.getMedico().getId());   
             ps.setString(3, cita.getFecha());
             ps.setString(4, cita.getHora());
             ps.setString(5, cita.getDiagnostico());
@@ -127,8 +127,8 @@ public class DAOHospital {
         }
     }
     
-    public ArrayList<CitaMedica> obtenerTodasLasCitas() throws SQLException {
-        ArrayList<CitaMedica> lista = new ArrayList<>();
+    public ArrayList<Cita> obtenerTodasLasCitas() throws SQLException {
+        ArrayList<Cita> lista = new ArrayList<>();
         String sql = "SELECT * FROM CitaMedica";
         
         try (Connection con = DriverManager.getConnection(URL, USER, PASS);
@@ -141,7 +141,7 @@ public class DAOHospital {
                 String hora = rs.getString("hora");
                 String diagnostico = rs.getString("diagnostico");
                 
-                lista.add(new CitaMedica(id_cita, null, null, fecha, hora, diagnostico));
+                lista.add(new Cita(id_cita, null, null, fecha, hora, diagnostico));
             }
         }
         return lista;
