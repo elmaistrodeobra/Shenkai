@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package pkg_modelo;
 
 import java.sql.Connection;
@@ -23,7 +19,6 @@ public class DAOHospital {
     private final String PASS = "root";
 
     // MÉTODOS DEL INTEGRANTE 2 - MÓDULO MÉDICOS
-
 
     public boolean registrarMedico(Medico medico) {
         String sql = "INSERT INTO Medico (nombre, apellido, telefono, cedula, especialidad, horario) VALUES (?, ?, ?, ?, ?, ?)";
@@ -53,10 +48,19 @@ public class DAOHospital {
              ResultSet rs = ps.executeQuery()) {
 
             while (rs.next()) {
+                // Si tu tabla Medico no tiene columna 'edad', se envía 0 como valor por defecto
+                int edad = 0;
+                try {
+                    edad = rs.getInt("edad");
+                } catch (SQLException e) {
+                    // Si no existe la columna en la BD, continúa con 0
+                }
+
                 Medico m = new Medico(
                     rs.getInt("id_medico"),
                     rs.getString("nombre"),
                     rs.getString("apellido"),
+                    edad,
                     rs.getString("telefono"),
                     rs.getString("cedula"),
                     rs.getString("especialidad"),
