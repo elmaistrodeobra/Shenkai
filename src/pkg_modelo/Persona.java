@@ -8,7 +8,6 @@ package pkg_modelo;
  *
  * @author uli08
  */
-<<<<<<< HEAD
 public abstract class Persona {
     protected int id;
     protected String nombre;
@@ -45,8 +44,3 @@ public abstract class Persona {
         return telefono;
     }
 }
-=======
-public class Persona {
-    
-}
->>>>>>> origin/master
